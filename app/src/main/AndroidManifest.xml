@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Main_Activity">
+                    <!--android:icon="@drawable/ams_logo"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
