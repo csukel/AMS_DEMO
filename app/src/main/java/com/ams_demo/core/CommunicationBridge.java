@@ -1,5 +1,7 @@
 package com.ams_demo.core;
 
+import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -28,11 +30,11 @@ public class CommunicationBridge {
 
     private CommunicationBridge(){}
 
-    public static void sendMsg(){
+    public static void sendMsg(Object sensorId, Object value){
 
-        String uri = "http://192.168.100.70:8000/SHIOT_02/Services/putSensorReading.xsjs?id=A001&value=";
-        int random = (int )(Math. random() * 50 + 1);
-        uri = uri + String.valueOf(random);
+        String uri = "http://han.ams.com.cy:8000/SHIOT_02/Services/putSensorReading.xsjs?id=" +(String)sensorId + "&ida=doros" + "&value="+String.valueOf(Math.round((float)value));
+/*        int random = (int )(Math. random() * 50 + 1);
+        uri = uri + String.valueOf(random);*/
         String result = null;
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpGet httpGet = new HttpGet(uri);
@@ -44,6 +46,11 @@ public class CommunicationBridge {
             HttpResponse httpResponse = httpClient.execute(httpGet);
             HttpEntity entity = httpResponse.getEntity();
             result = EntityUtils.toString(entity);
+            if (result.equals("1")){
+                Log.d("Communication Bridge","Successful update of "+ (String)sensorId);
+            }else{
+                Log.d("Communication Bridge",(String)sensorId+" was not updated...");
+            }
 
         } catch (ClientProtocolException cpe) {
             System.out.println("First Exception caz of HttpResponese :" + cpe);
