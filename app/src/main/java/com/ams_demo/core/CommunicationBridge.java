@@ -30,9 +30,9 @@ public class CommunicationBridge {
 
     private CommunicationBridge(){}
 
-    public static void sendMsg(Object sensorId, Object value){
+    public static void sendMsg(Object sensorId, Object value,Object name){
 
-        String uri = "http://han.ams.com.cy:8000/SHIOT_02/Services/putSensorReading.xsjs?id=" +(String)sensorId + "&ida=doros" + "&value="+String.valueOf(Math.round((float)value));
+        String uri = "http://han.ams.com.cy:8000/SHIOT_02/Services/putSensorReading.xsjs?id=" +(String)sensorId + "&ida=" +(String)name + "&value="+String.valueOf(Math.round((float)value));
 /*        int random = (int )(Math. random() * 50 + 1);
         uri = uri + String.valueOf(random);*/
         String result = null;

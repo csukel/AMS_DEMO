@@ -24,7 +24,7 @@ public class CommAsyncTask extends AsyncTask<Object , Void , Integer> {
         //to check on click listener
         //Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
         //Log.d("Test async task","Success");
-        CommunicationBridge.sendMsg(params[0],params[1]);
+        CommunicationBridge.sendMsg(params[0],params[1],params[2]);
         return 0;
     }
 

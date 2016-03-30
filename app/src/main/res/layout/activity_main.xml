@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ams_demo.Main_Activity">
 
     <LinearLayout
@@ -21,7 +19,7 @@
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:text="Accelerometer Values"
+                android:text="Sensor Values"
                 android:textSize="30dip"
                 android:gravity="center"
                 android:layout_weight="5"
@@ -124,22 +122,34 @@
                         android:layout_weight="1"/>
                 </TableRow>
             </TableLayout>
-            <Button
-                android:id="@+id/btn_Send"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5.5"
-                android:text="Send"
-                />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+
             android:layout_weight="1">
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Please enter a name"
+                android:gravity="center"
+                android:maxLength="10"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btn_Send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start Communication"
+                />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="-80dp"
+                android:layout_weight="1"
                 android:src="@drawable/ams_sap_partner_tran"/>
         </LinearLayout>
 
