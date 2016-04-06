@@ -157,7 +157,7 @@ public class Main_Activity extends AppCompatActivity implements SensorEventListe
                 txtZvalue.setText(String.valueOf(z));
                 new CommAsyncTask().execute(sensorId[0], z * 1000,personId);
                 txtLightValue.setText(String.valueOf(lightValue));
-                new CommAsyncTask().execute(sensorId[2],lightValue,personId);
+                new CommAsyncTask().execute(sensorId[2],lightValue*1000,personId);
                 lastUpdate = curTime;
             }
         }
