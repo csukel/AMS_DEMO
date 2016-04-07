@@ -101,7 +101,7 @@ public class Main_Activity extends AppCompatActivity implements SensorEventListe
     protected void onPause() {
         super.onPause();
         if (isPressed) {
-            senSensorManager.unregisterListener(this);
+            //senSensorManager.unregisterListener(this);
         }
         //senSensorManager.unregisterListener(senStepDetector);
     }
