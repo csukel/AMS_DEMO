@@ -85,14 +85,21 @@ public class Main_Activity extends AppCompatActivity implements SensorEventListe
                 if (!isNetworkAvailable(main_activity)) {
 
                     Toast.makeText(main_activity, "No network available...", Toast.LENGTH_SHORT).show();
-                } else if (edtName.getText().toString().equals("")) {
+                } else if (edtName.getText().toString().equals("") && !(isPressed)) {
                     Toast.makeText(main_activity, "Enter a name...", Toast.LENGTH_SHORT).show();
                 } else if (!isPressed) {
                     senSensorManager.registerListener(main_activity, senAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
                     senSensorManager.registerListener(main_activity, senStepDetector, SensorManager.SENSOR_DELAY_NORMAL);
                     senSensorManager.registerListener(main_activity, senLight, SensorManager.SENSOR_DELAY_NORMAL);
                     personId = edtName.getText().toString();
+                    //remove whitespaces
+                    personId = personId.replace(" ","");
+                    edtName.setText("");
+                    edtName.setHint(personId);
+                    edtName.setEnabled(false);
                     isPressed = !isPressed;
+                } else {
+                    Toast.makeText(main_activity, "You have already entered a name...", Toast.LENGTH_SHORT).show();
                 }
 
             }
